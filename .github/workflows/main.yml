@@ -1,0 +1,20 @@
+name: "Teste da action JS"
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+jobs:
+  job_action_test:
+    name: "Job - Executando Action JS"
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Executando Action JS"
+        uses: fspelling/action-js@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue-id: ${{ github.event.issue.number }}
+          comment: "Comentario adicionado na pipe"
