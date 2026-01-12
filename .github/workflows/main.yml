@@ -20,4 +20,4 @@ jobs:
           issue-id: ${{ github.event.issue.number }}
           comment: "Comentario adicionado na pipe"
       - name: "Exibindo output comentario"
-        run: echo "id comentario=${{ steps.action-js.outputs.comentario-id }}"
+        run: echo "id comentario=${{ steps.action-js.outputs.comment-id }}"
