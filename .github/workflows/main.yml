@@ -18,6 +18,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue-id: ${{ github.event.issue.number }}
-          comment: "Comentario adicionado na pipe"
+          comment: "Comentario adicionado na pipe (composite)"
       - name: "Exibindo output comentario"
         run: echo "id comentario=${{ steps.action-composite.outputs.comment-id }}"
