@@ -1,4 +1,4 @@
-name: "Teste da action JS"
+name: "Teste da action composite"
 on:
   issues:
     types: [opened]
@@ -6,18 +6,18 @@ on:
     types: [opened]
 jobs:
   job_action_test:
-    name: "Job - Executando Action JS"
+    name: "Job - Executando Action Composite"
     permissions:
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: "Executando Action JS"
-        id: action-js
-        uses: fspelling/action-js@main
+        id: action-composite
+        uses: fspelling/action-composite@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue-id: ${{ github.event.issue.number }}
           comment: "Comentario adicionado na pipe"
       - name: "Exibindo output comentario"
-        run: echo "id comentario=${{ steps.action-js.outputs.comment-id }}"
+        run: echo "id comentario=${{ steps.action-composite.outputs.comment-id }}"
