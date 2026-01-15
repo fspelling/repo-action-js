@@ -1,4 +1,4 @@
-name: "Teste da action composite"
+name: "Teste da action docker"
 on:
   issues:
     types: [opened]
@@ -6,7 +6,7 @@ on:
     types: [opened]
 jobs:
   job_action_test:
-    name: "Job - Executando Action Composite"
+    name: "Job - Executando Action Docker"
     permissions:
       issues: write
       pull-requests: write
@@ -14,10 +14,11 @@ jobs:
     steps:
       - name: "Executando Action JS"
         id: action-composite
-        uses: fspelling/action-composite@main
+        uses: fspelling/action-docker@main # <--
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue-id: ${{ github.event.issue.number }}
-          comment: "Comentario adicionado na pipe (composite)"
+          comment: "Comentario adicionado na pipe"
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - name: "Exibindo output comentario"
-        run: echo "id comentario=${{ steps.action-composite.outputs.comment_id }}"
+        run: echo "id comentario=${{ steps.action-composite.outputs.comment-id }}"
