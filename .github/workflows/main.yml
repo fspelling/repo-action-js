@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: "Executando Action JS"
         id: action-composite
-        uses: fspelling/action-docker@main
+        uses: fspelling/action-docker@v1.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue-id: ${{ github.event.issue.number }}
